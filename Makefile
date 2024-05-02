@@ -1,9 +1,12 @@
 install:
 	pip install --upgrade pip &&\
-        	pip install -r requirements.txt
+		pip install -r requirements.txt
 
 format:
-	black *.py
+	black ./src/data/*.py
+	black ./src/features/*.py
+	black ./src/models/*.py
+	black ./src/visualization/*.py
 
 train:
 	python ./src/models/train_model.py
