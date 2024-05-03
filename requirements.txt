@@ -7,3 +7,4 @@ skops
 black
 gradio
 pytest
+huggingface_hub[cli]
