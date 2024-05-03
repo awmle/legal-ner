@@ -33,7 +33,9 @@ push-to-hf:
 	huggingface-cli upload ali-waheed-aw/wine-ml ./models --repo-type=space --commit-message="Sync Model"
 	huggingface-cli upload ali-waheed-aw/wine-ml ./reports --repo-type=space --commit-message="Sync Metrics"
 
-deploy: hf-login push-to-hf
+deploy: 
+	hf-login push-to-hf
 
-unit_test:
+unit_test: 
+	pip install pytest
 	pytest
