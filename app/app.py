@@ -1,7 +1,7 @@
 import gradio as gr
 import skops.io as sio
 
-model = sio.load("./models/model.skops", trusted=True)
+model = sio.load("./model.skops", trusted=True)
 
 
 def predict_score(
