@@ -24,9 +24,19 @@ jobs:
       - name: Setup CML
         uses: iterative/setup-cml@v2
 
-      - name: Run Sample Script
-        run: | 
-          echo "QA job running"
+      - name: Install Packages
+        run: make install
+
+      - name: Train
+        run: make train
+
+      - name: Evaluation
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: make eval
+
+      - name: Run Tests
+        run: make unit_test
 
   PROD-JOB:
     if: github.event.pull_request.merged == true

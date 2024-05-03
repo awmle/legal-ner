@@ -7,6 +7,7 @@ format:
 	black ./src/features/*.py
 	black ./src/models/*.py
 	black ./src/visualization/*.py
+	black ./app/*.py
 
 train:
 	python ./src/models/train_model.py
@@ -20,3 +21,6 @@ eval:
 	echo '![Residuals](./reports/figures/residuals.png)' >> report.md
    
 	cml comment create report.md
+
+unit_test:
+	pytest
