@@ -18,24 +18,13 @@ jobs:
     environment: QA
     
     steps:
-      - name: Checkout code from dev
+      - name: Checkout code from DEV
         uses: actions/checkout@v3
         with:
           ref: dev
 
       - name: Setup CML
         uses: iterative/setup-cml@v2
-
-      - name: Install Packages
-        run: make install
-
-      - name: Train
-        run: make train
-
-      - name: Evaluation
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: make eval
 
       - name: Run Tests
         run: make unit_test
@@ -48,7 +37,7 @@ jobs:
     needs: QA-JOB
     
     steps:
-      - name: Checkout code from dev
+      - name: Checkout code from DEV
         uses: actions/checkout@v3
         with:
           ref: dev
@@ -56,7 +45,7 @@ jobs:
       - name: Setup CML
         uses: iterative/setup-cml@v2
       
-      - name: Deployment To Hugging Face
+      - name: Deploy to Hugging Face
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: make deploy HF_TOKEN=$HF_TOKEN
