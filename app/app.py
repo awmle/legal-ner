@@ -19,8 +19,8 @@ def predict_score(
     return score
 
 def main():
-    st.title("Wine Quality Predictor")
-    st.write("Enter the details to correctly identify Wine Quality")
+    st.title("Legal NER Classifier")
+    st.write("Enter the details to correctly identify Legal Classes")
 
     fixed_acidity = st.slider("Fixed Acidity", 4.0, 16.0, step=0.1)
     volatile_acidity = st.slider("Volatile Acidity", 0.01, 2.0, step=0.01)

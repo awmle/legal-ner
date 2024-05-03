@@ -27,9 +27,9 @@ hf-login:
 	huggingface-cli login --token $(HF_TOKEN) --add-to-git-credential
 
 push-to-hf:
-	huggingface-cli upload ali-waheed-aw/wine-ml ./app --repo-type=space --commit-message="Sync App files"
-	huggingface-cli upload ali-waheed-aw/wine-ml ./models --repo-type=space --commit-message="Sync Model"
-	huggingface-cli upload ali-waheed-aw/wine-ml ./reports --repo-type=space --commit-message="Sync Metrics"
+	huggingface-cli upload ali-waheed-aw/legal-ner ./app --repo-type=space --commit-message="Sync App files"
+	huggingface-cli upload ali-waheed-aw/legal-ner ./models --repo-type=space --commit-message="Sync Model"
+	huggingface-cli upload ali-waheed-aw/legal-ner ./reports --repo-type=space --commit-message="Sync Metrics"
 
 deploy: hf-login push-to-hf
 

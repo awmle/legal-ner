@@ -1,5 +1,5 @@
 ---
-title: Wine Prediction
+title: Legal NER
 emoji: 📉
 colorFrom: yellow
 colorTo: yellow
