@@ -23,8 +23,6 @@ eval:
 	cml comment create report.md
 
 hf-login:
-	# git pull origin dev
-	# git switch dev
 	pip install -U "huggingface_hub[cli]"
 	huggingface-cli login --token $(HF_TOKEN) --add-to-git-credential
 
@@ -33,9 +31,8 @@ push-to-hf:
 	huggingface-cli upload ali-waheed-aw/wine-ml ./models --repo-type=space --commit-message="Sync Model"
 	huggingface-cli upload ali-waheed-aw/wine-ml ./reports --repo-type=space --commit-message="Sync Metrics"
 
-deploy: 
-	hf-login push-to-hf
+deploy: hf-login push-to-hf
 
 unit_test: 
-	pip install pytest
-	pytest
+	pip install pytest &&\
+		pytest
