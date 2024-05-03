@@ -10,34 +10,40 @@ permissions: write-all
 jobs:
   
   QA-JOB:
-
     if: github.event.pull_request.merged == true
 
     runs-on: ubuntu-latest
     environment: QA
     
     steps:
-      - uses: actions/checkout@v3
-      - uses: iterative/setup-cml@v2
+      - name: Checkout code from dev
+        uses: actions/checkout@v3
+        with:
+          ref: dev
+
+      - name: Setup CML
+        uses: iterative/setup-cml@v2
 
       - name: Run Sample Script
         run: | 
           echo "QA job running"
 
   PROD-JOB:
-
     if: github.event.pull_request.merged == true
-    
+
     runs-on: ubuntu-latest
     environment: PROD
     needs: QA-JOB
     
     steps:
-      - uses: actions/checkout@v3
-      - uses: iterative/setup-cml@v2
+      - name: Checkout code from dev
+        uses: actions/checkout@v3
+        with:
+          ref: dev
+
+      - name: Setup CML
+        uses: iterative/setup-cml@v2
       
       - name: Run Sample Script
         run: | 
           echo "PROD job running"
-
-
