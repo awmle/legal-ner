@@ -54,6 +54,7 @@ jobs:
       - name: Setup CML
         uses: iterative/setup-cml@v2
       
-      - name: Run Sample Script
-        run: | 
-          echo "PROD job running"
+      - name: Deployment To Hugging Face
+        env:
+          HF: ${{ secrets.HF_TOKEN }}
+        run: make deploy HF=$HF
