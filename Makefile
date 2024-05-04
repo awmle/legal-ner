@@ -14,15 +14,15 @@ transform_data:
 	python ./src/features/build_features.py
 
 train:
-	python ./src/models/train_model.py
+	python -m spacy train ./src/models/config.cfg --output ./models > ./reports/train_metrics.txt
 
 eval:
 	echo "## Model Metrics" > report.md
-	cat ./reports/metrics.txt >> report.md
+	cat ./reports/train_metrics.txt >> report.md
 
-	echo "## Data Visualization" >> ./reports/report.md
-	echo '![Feature Importance](./reports/figures/feature_importance.png)' >> report.md
-	echo '![Residuals](./reports/figures/residuals.png)' >> report.md
+	# echo "## Data Visualization" >> ./reports/report.md
+	# echo '![Feature Importance](./reports/figures/feature_importance.png)' >> report.md
+	# echo '![Residuals](./reports/figures/residuals.png)' >> report.md
    
 	cml comment create report.md
 

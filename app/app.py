@@ -3,7 +3,7 @@ import spacy
 from spacy import displacy
 
 # Load the spaCy model
-nlp = spacy.load("en_legal_ner_sm")
+nlp = spacy.load("./models/model-last/")
 
 # Function to extract entities from text
 def extract_entities(text):
