@@ -19,14 +19,9 @@ train:
 test:
 	python -m spacy evaluate ./models/model-last/ ./data/processed/TEST.spacy > ./reports/test_metrics.txt
 
-eval:
-	echo "## Evaluation Results" > report.md
-	tr -cd '\11\12\15\40-\176' < ./reports/test_metrics.txt > report.md
-
-	# echo "## Data Visualization" >> ./reports/report.md
-	# echo '![Feature Importance](./reports/figures/feature_importance.png)' >> report.md
-	# echo '![Residuals](./reports/figures/residuals.png)' >> report.md
-   
+visualize:
+	echo "## Test Metrics" >> ./reports/report.md
+	echo '![Test Metrics](./reports/figures/test_metrics.png)' >> report.md
 	cml comment create report.md
 
 hf-login:

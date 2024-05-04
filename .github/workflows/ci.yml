@@ -26,7 +26,7 @@ jobs:
         run: make train
       - name: Test
         run: make test
-      - name: Evaluate
+      - name: Visualize
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: make eval
+        run: make visualize
