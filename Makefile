@@ -21,7 +21,7 @@ test:
 
 eval:
 	echo "## Evaluation Results" > report.md
-	cat ./reports/test_metrics.txt >> report.md
+	tr -cd '\11\12\15\40-\176' < ./reports/test_metrics.txt > report.md
 
 	# echo "## Data Visualization" >> ./reports/report.md
 	# echo '![Feature Importance](./reports/figures/feature_importance.png)' >> report.md
