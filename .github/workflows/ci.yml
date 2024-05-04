@@ -7,7 +7,7 @@ on:
 permissions: write-all
 
 jobs:
-  build:
+  DEV-JOB:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code from branch
