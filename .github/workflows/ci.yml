@@ -20,6 +20,8 @@ jobs:
         run: make install
       - name: Format
         run: make format
+      - name: Transform Data
+        run: make transform_data
       - name: Train
         run: make train
       - name: Evaluation
