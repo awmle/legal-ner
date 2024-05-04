@@ -16,9 +16,12 @@ transform_data:
 train:
 	python -m spacy train ./src/models/config.cfg --output ./models > ./reports/train_metrics.txt
 
+test:
+	python -m spacy evaluate ./models/model-last/ ./data/processed/TEST.spacy > ./reports/test_metrics.txt
+
 eval:
-	echo "## Model Metrics" > report.md
-	cat ./reports/train_metrics.txt >> report.md
+	echo "## Evaluation Results" > report.md
+	cat ./reports/test_metrics.txt >> report.md
 
 	# echo "## Data Visualization" >> ./reports/report.md
 	# echo '![Feature Importance](./reports/figures/feature_importance.png)' >> report.md
