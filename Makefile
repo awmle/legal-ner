@@ -11,7 +11,7 @@ format:
 
 transform_data:
 	python ./src/data/make_dataset.py
-	python ./src/data/build_features.py
+	python ./src/features/build_features.py
 
 train:
 	python ./src/models/train_model.py
