@@ -21,8 +21,8 @@ test:
 
 visualize:
 	echo "## Test Metrics" > ./reports/report.md
-	echo '![Test Metrics](./reports/figures/test_metrics.png)' >> report.md
-	cml comment create report.md
+	echo '![Test Metrics](./reports/figures/test_metrics.png)' >> ./reports/report.md
+	cml comment create ./reports/report.md
 
 hf-login:
 	pip install -U "huggingface_hub[cli]"
