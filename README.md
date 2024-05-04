@@ -1,7 +1,7 @@
-legal-ner
+Legal NER (end-to-end MLOps workflow)
 ==============================
+paper: https://aclanthology.org/2022.nllp-1.15.pdf
 
-end-to-end MLOps workflow
 
 Project Organization
 ------------
