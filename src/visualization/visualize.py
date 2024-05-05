@@ -2,6 +2,12 @@ import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 
+import mlflow
+import mlflow.spacy
+import spacy
+
+import configparser
+
 def read_metrics_file(file_path):
     """Read the contents of the text file."""
     with open(file_path, 'r') as file:
@@ -52,10 +58,33 @@ def save_table_image(fig, file_path):
     fig.update_layout(width=800, height=600)
     fig.write_image(file_path)
 
+def track_experiment(data):
+    """Track the experiment metrics and model using MLflow"""
+    config_file = './src/models/config.cfg'
+    config = configparser.ConfigParser()
+    config.read(config_file)
+
+    # MLflow Tracking
+    nlp = spacy.load('./models/model-last')
+    with mlflow.start_run(run_name='Spacy'):
+        mlflow.set_tag('model_flavor', 'spacy')
+        mlflow.spacy.log_model(spacy_model=nlp, artifact_path='model')
+        mlflow.log_metric('Precision', data['Precision'][-1])
+        mlflow.log_metric('Recall', data['Recall'][-1])
+        mlflow.log_metric('F1 Score', data['F1 Score'][-1])
+        mlflow.log_param('max_epochs', config['training'].get('max_epochs'))
+        mlflow.log_param('dropout', config['training'].get('dropout'))
+        mlflow.log_param('learn_rate', config['training.optimizer'].get('learn_rate'))
+        my_run_id = mlflow.active_run().info.run_id
+
 if __name__ == "__main__":
     file_path = './reports/test_metrics.txt'
     content = read_metrics_file(file_path)
     data = extract_ner_metrics(content)
     data = compute_average_metrics(data)
+    track_experiment(data)
     fig = create_table_figure(data)
     save_table_image(fig, "./reports/figures/test_metrics.png")
+    
+
+
