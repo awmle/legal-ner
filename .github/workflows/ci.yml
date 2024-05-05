@@ -9,8 +9,9 @@ permissions: write-all
 jobs:
   DEV-JOB:
     runs-on: ubuntu-latest
+    container: ghcr.io/iterative/cml:0-dvc2-base1
     steps:
-      - name: Checkout code from branch
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Setup CML
