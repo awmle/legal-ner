@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/aliwaheed/Desktop/TRLabs/legal-ner/mlruns/0/5ab0cdab44fb4ad4a36eb0066dbf3d7e/artifacts
+end_time: 1714921863526
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5ab0cdab44fb4ad4a36eb0066dbf3d7e
+run_name: Spacy
+run_uuid: 5ab0cdab44fb4ad4a36eb0066dbf3d7e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714921861911
+status: 3
+tags: []
+user_id: aliwaheed
