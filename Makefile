@@ -20,6 +20,7 @@ test:
 	python -m spacy evaluate ./models/model-last/ ./data/processed/TEST.spacy > ./reports/test_metrics.txt
 
 visualize:
+	python ./src/visualization/visualize.py
 	echo "## Test Metrics" > report.md
 	echo '![Test Metrics](./reports/figures/test_metrics.png)' >> report.md
 	cml comment create report.md
