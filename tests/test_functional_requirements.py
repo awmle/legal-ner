@@ -1,20 +1,33 @@
 import pytest
 import os
 
-@pytest.fixture
-def get_path_figures():
-    return "./reports/figures"
+def test_testmetric_file():
+    assert 'test_metrics.txt' in os.listdir('./reports')
 
-@pytest.fixture
-def get_path_models():
-    return "./models"
+def test_trainmetric_file():
+    assert 'train_metrics.txt' in os.listdir('./reports')
 
-# def test_figure_files(get_path_figures):
-#     assert 'feature_importance.png' in os.listdir(get_path_figures)
-#     assert 'residuals.png' in os.listdir(get_path_figures)
+def test_eval_png():
+    assert 'test_metrics.png' in os.listdir('./reports/figures')
 
-def test_metric_file(get_path_figures):
-    assert 'train_metrics.txt' in os.listdir(get_path_figures.rsplit('/',1)[0])
+def test_model_file():
+    assert 'model-last' in os.listdir('./models')
 
-def test_model_file(get_path_models):
-    assert 'model-last' in os.listdir(get_path_models)
+def test_interim_data():
+    assert 'NER_DEV.json' in os.listdir('./data/interim')
+    assert 'NER_TEST.json' in os.listdir('./data/interim')
+    assert 'NER_TRAIN.json' in os.listdir('./data/interim')
+
+def test_processed_data():
+    assert 'DEV.spacy' in os.listdir('./data/processed')
+    assert 'TEST.spacy' in os.listdir('./data/processed')
+    assert 'TRAIN.spacy' in os.listdir('./data/processed')
+
+def test_ci_config():
+    assert 'ci.yml' in os.listdir('./.github/workflows')
+
+def test_cd_config():
+    assert 'cd.yml' in os.listdir('./.github/workflows')
+
+def test_train_config():
+    assert 'config.cfg' in os.listdir('./src/models')
