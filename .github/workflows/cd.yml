@@ -27,6 +27,9 @@ jobs:
       - name: Setup CML
         uses: iterative/setup-cml@v2
 
+      - name: Install Packages
+        run: make install
+
       - name: Run Tests
         run: make unit_test
 
