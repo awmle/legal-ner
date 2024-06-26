@@ -3,7 +3,7 @@ Legal NER (end-to-end MLOps workflow)
 paper: https://aclanthology.org/2022.nllp-1.15.pdf
 
 
-Project Organization
+## 1. Project Organization
 ------------
 
     ├── LICENSE
@@ -53,4 +53,16 @@ Project Organization
 
 --------
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+## 2. Workflow Architecture
+
+![plot](./reports/figures/workflow.png)
+
+------------
+
+## 3. Frontend Sample
+The HF space dies after inactivity for some time because this project uses the free-tier 😃. Trigger a new end-to-end run to refresh the front-end
+deployed link: https://huggingface.co/spaces/ali-waheed-aw/legal-ner
+
+![plot](./reports/figures/frontend.png)
+
+------------
